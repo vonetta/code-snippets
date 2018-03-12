@@ -10,7 +10,8 @@
                 <div class="form-group input-group" ng-class='{"has-error":$ctrl.valid("eventDate") }'>
                     <label for="eventDate" class="control-label">Event Date</label>
                     <div class="input-group date">
-                        <input name="eventDate" id="eventDate" datetimepicker ng-model="$ctrl.formData.eventDate" options="$ctrl.options" class="form-control" placeholder="Please Provide a Date" required />
+                        <input name="eventDate" id="eventDate" datetimepicker ng-model="$ctrl.formData.eventDate" options="$ctrl.options" class="form-control"
+                            placeholder="Please Provide a Date" required />
 
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
@@ -22,7 +23,8 @@
                 <div class="form-group" ng-class="{ 'has-error': $ctrl.journalForm.$submitted &&( $ctrl.journalForm.title.$error.required || $ctrl.journalForm.title.$error.max) }">
                     <label for="title" class="control-label">Title</label>
 
-                    <input type="text" id="title" class="form-control" name="title" max="50" ng-model="$ctrl.formData.title" placeholder="Please enter a title" required>
+                    <input type="text" id="title" class="form-control" name="title" max="50" ng-model="$ctrl.formData.title" placeholder="Please enter a title"
+                        required>
                     <span class="fa fa-times form-control-feedback"></span>
 
                     <span ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm.$error.required" class="help-block">Please provide a title for this entry</span>
@@ -51,16 +53,19 @@
                     <div class="trigger" ng-repeat="x in $ctrl.formData.triggerTags">
                         <div class="row">
 
-                            <div class="form-group col-md-6" ng-class="{ 'has-error': $ctrl.journalForm.$submitted &&( $ctrl.journalForm['triggerType-'+$index].$error.required || $ctrl.journalForm['triggerType-'+$index].$error.pattern) }" class="form-group has-feedback">
+                            <div class="form-group col-md-6" ng-class="{ 'has-error': $ctrl.journalForm.$submitted &&( $ctrl.journalForm['triggerType-'+$index].$error.required || $ctrl.journalForm['triggerType-'+$index].$error.pattern) }"
+                                class="form-group has-feedback">
                                 <label for="triggerType" class="control-label">Trigger Trauma Id</label>
-                                <input type="text" class="form-control" id="triggerType" name="triggerType-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/" placeholder="Please enter a trigger trauma id" ng-model="$ctrl.formData.triggerTags[$index].id" required>
+                                <input type="text" class="form-control" id="triggerType" name="triggerType-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/" placeholder="Please enter a trigger trauma id"
+                                    ng-model="$ctrl.formData.triggerTags[$index].id" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['triggerType-'+$index].$error.required">Please provide an id</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['triggerType-'+$index].$error.pattern">Please provide a 24 character a-f, 0-9 long id</p>
                             </div>
 
                             <div class="form-group col-md-4" ng-class="{'has-error': $ctrl.journalForm.$submitted && ($ctrl.journalForm['triggerSeverity-'+$index].$error.min || $ctrl.journalForm['triggerSeverity-'+$index].$error.required)}">
                                 <label for="triggerSeverity" class="control-label">Trigger Severity</label>
-                                <input type="number" min="0" id="triggerSeverity" name="triggerSeverity-{{$index}}" class="form-control" placeholder="Please enter a severity level" ng-model="$ctrl.formData.triggerTags[$index].severity" required>
+                                <input type="number" min="0" id="triggerSeverity" name="triggerSeverity-{{$index}}" class="form-control" placeholder="Please enter a severity level"
+                                    ng-model="$ctrl.formData.triggerTags[$index].severity" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['triggerType-'+$index].$error.min" class="help-block">Please enter a level over 0</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['triggerType-'+$index].$error.required" class="help-block">Please provide an severity Id</p>
                             </div>
@@ -84,23 +89,26 @@
 
                     <div class="social" ng-repeat="x in $ctrl.formData.socialTags">
                         <div class="row">
-                            <div class="form-group col-md-6" ng-class="{ 'has-error': $ctrl.journalForm.$submitted && ($ctrl.journalForm['socialTags-'+$index].$error.required || $ctrl.journalForm['socialTags-'+$index].$error.pattern) }" class="form-group has-feedback">
+                            <div class="form-group col-md-6" ng-class="{ 'has-error': $ctrl.journalForm.$submitted && ($ctrl.journalForm['socialTags-'+$index].$error.required || $ctrl.journalForm['socialTags-'+$index].$error.pattern) }"
+                                class="form-group has-feedback">
                                 <label for="socialTags" class="control-label">Social Trauma Id</label>
-                                <input type="text" class="form-control" id="socialTags" name="socialTags-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/" placeholder="Please enter a social trauma id" ng-model="$ctrl.formData.socialTags[$index].id" required>
+                                <input type="text" class="form-control" id="socialTags" name="socialTags-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/" placeholder="Please enter a social trauma id"
+                                    ng-model="$ctrl.formData.socialTags[$index].id" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['socialTags-'+$index].$error.required" class="help-block">Please provide an id</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['socialTags-'+$index].$error.pattern" class="help-block">Please provide a 24 character a-f, 0-9 long id</p>
                             </div>
 
                             <div class="form-group col-md-4" ng-class="{'has-error': $ctrl.journalForm.$submitted && ($ctrl.journalForm['socialSeverity-'+$index].$error.min || $ctrl.journalForm['socialSeverity-'+$index].$error.required)}">
                                 <label for="socialSeverity" class="control-label">Social Severity</label>
-                                <input type="number" min="0" name="socialSeverity-{{$index}}" id="socialSeverity" class="form-control" placeholder="Please enter a severity level" ng-model="$ctrl.formData.socialTags[$index].severity" required>
+                                <input type="number" min="0" name="socialSeverity-{{$index}}" id="socialSeverity" class="form-control" placeholder="Please enter a severity level"
+                                    ng-model="$ctrl.formData.socialTags[$index].severity" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['socialSeverity-'+$index].$error.min" class="help-block">Please enter a level over 0</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['socialSeverity-'+$index].$error.required" class="help-block">Please provide an severity Id</p>
                             </div>
 
                             <div class="form-group">
                                 <a href="#" ng-click="$ctrl.removeButton('socialTags',$index)">Remove
-                                    <i class="fa fa-close"></i> 
+                                    <i class="fa fa-close"></i>
                                 </a>
                             </div>
                         </div>
@@ -120,14 +128,17 @@
                             <div class="form-group col-md-6" ng-class="{'has-error': $ctrl.journalForm.$submitted && ($ctrl.journalForm['physicalType-'+$index].$error.pattern || $ctrl.journalForm['physicalType-'+$index].$error.required)}">
 
                                 <label for="physicalType" class="control-label">Physical Trauma Id</label>
-                                <input type="text" class="form-control" id="physicalType" name="physicalType-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/" placeholder="Please enter a physical type" ng-model="$ctrl.formData.physicalTags[$index].id" required>
+                                <input type="text" class="form-control" id="physicalType" name="physicalType-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/"
+                                    placeholder="Please enter a physical type" ng-model="$ctrl.formData.physicalTags[$index].id"
+                                    required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['physicalType-'+$index].$error.required" class="help-block">Please provide an id</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['physicalType-'+$index].$error.pattern" class="help-block">Please provide a 24 character a-f, 0-9 long id</p>
                             </div>
 
                             <div class="form-group col-md-4" ng-class="{'has-error': $ctrl.journalForm.$submitted && ($ctrl.journalForm['physicalSeverity-'+$index].$error.min || $ctrl.journalForm['physicalSeverity-'+$index].$error.required)}">
                                 <label for="physicalSeverity" class="control-label">Physical Severity</label>
-                                <input type="number" min="0" name="physicalSeverity-{{$index}}" class="form-control" placeholder="Please enter a severity level" ng-model="$ctrl.formData.physicalTags[$index].severity" required>
+                                <input type="number" min="0" name="physicalSeverity-{{$index}}" class="form-control" placeholder="Please enter a severity level"
+                                    ng-model="$ctrl.formData.physicalTags[$index].severity" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['physicalSeverity-'+$index].$error.min" class="help-block">Please enter a level over 0</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['physicalSeverity-'+$index].$error.required" class="help-block">Please provide an severity</p>
                             </div>
@@ -155,14 +166,16 @@
 
                             <div class="form-group col-md-6" ng-class="{ 'has-error': $ctrl.journalForm.$submitted &&( $ctrl.journalForm['emotionalType-'+$index].$error.required || $ctrl.journalForm['emotionalType-'+$index].$error.pattern) }">
                                 <label for="emotionalType" class="control-label">Emotional Trauma Id</label>
-                                <input type="text" id="emotionalType" class="form-control" name="emotionalType-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/" placeholder="Please enter id" ng-model="$ctrl.formData.emotionalTags[$index].id" required>
+                                <input type="text" id="emotionalType" class="form-control" name="emotionalType-{{$index}}" ng-pattern="/^[0-9a-fA-F]{24}$/"
+                                    placeholder="Please enter id" ng-model="$ctrl.formData.emotionalTags[$index].id" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['emotionalType-'+$index].$error.required" class="help-block">Please provide an id</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['emotionalType-'+$index].$error.pattern" class="help-block">Please provide a 24 character a-f, 0-9 long id</p>
                             </div>
 
                             <div class="form-group col-md-4" ng-class="{'has-error': $ctrl.journalForm.$submitted &&  ($ctrl.journalForm['emotionalSeverity-'+$index].$error.required || $ctrl.journalForm['emotionalSeverity-'+$index].$error.min)}">
                                 <label for="emotionalSeverity" class="control-label">Emotional Severity</label>
-                                <input type="number" id="emotionalSeverity" min="0" name="emotionalSeverity-{{$index}}" class="form-control" placeholder="Please enter severity level" ng-model="$ctrl.formData.emotionalTags[$index].severity" required>
+                                <input type="number" id="emotionalSeverity" min="0" name="emotionalSeverity-{{$index}}" class="form-control" placeholder="Please enter severity level"
+                                    ng-model="$ctrl.formData.emotionalTags[$index].severity" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['emotionalSeverity-'+$index].$error.required" class="help-block">Please indicate a severity level</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['emotionalSeverity-'+$index].$error.min" class="help-block">Please enter a level over 0</p>
                             </div>
@@ -193,7 +206,8 @@
                             <div class="form-group col-md-4" ng-class="{ 'has-error': $ctrl.journalForm.$submitted && $ctrl.journalForm['dateCreated-'+$index].$error.required }">
                                 <label for="dateCreated" class="control-label">Date Created</label>
                                 <div class="input-group date">
-                                    <input name="dateCreated-{{$index}}" datetimepicker id="dateCreated" class="form-control" ng-model="$ctrl.formData.comments[$index].dateCreated" options="$ctrl.options" required>
+                                    <input name="dateCreated-{{$index}}" datetimepicker id="dateCreated" class="form-control" ng-model="$ctrl.formData.comments[$index].dateCreated"
+                                        options="$ctrl.options" required>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
@@ -204,14 +218,16 @@
 
                             <div class="form-group col-md-4" ng-class="{'has-error': $ctrl.journalForm.$submitted &&  ($ctrl.journalForm['userId-'+$index].$error.required || $ctrl.journalForm['userId-'+$index].$error.pattern)}">
                                 <label for="userId" class="control-label">User Id</label>
-                                <input type="text" class="form-control" ng-pattern="/^[0-9a-fA-F]{24}$/" name="userId-{{$index}}" id="userId" placeholder="Please enter id" ng-model="$ctrl.formData.comments[$index].userId" required>
+                                <input type="text" class="form-control" ng-pattern="/^[0-9a-fA-F]{24}$/" name="userId-{{$index}}" id="userId" placeholder="Please enter id"
+                                    ng-model="$ctrl.formData.comments[$index].userId" required>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm.$error.required" class="help-block">Please enter a valid User Id</p>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm['userId-'+$index].$error.pattern" class="help-block">Please provide a 24 character a-f, 0-9 long id</p>
                             </div>
 
                             <div class="form-group col-md-12" ng-class="{'has-error': $ctrl.journalForm.$submitted &&  $ctrl.journalForm['commentSection-'+$index].$error.required}">
                                 <label for="commentSection" class="control-label">Comments</label>
-                                <textarea name="commentSection-{{$index}}" id="commentSection" class="form-control" cols="30" rows="5" ng-model="$ctrl.formData.comments[$index].content" required></textarea>
+                                <textarea name="commentSection-{{$index}}" id="commentSection" class="form-control" cols="30" rows="5" ng-model="$ctrl.formData.comments[$index].content"
+                                    required></textarea>
                                 <p ng-show="$ctrl.journalForm.$submitted && $ctrl.journalForm.$error.required" class="help-block">Please fill out a comment</p>
                             </div>
 
@@ -231,7 +247,8 @@
 
                 <div class="row col-md-12">
                     <div class="checkbox">
-                        <input type="checkbox" id="visible" class="js-switch" ui-switch="{color: '#00acac', secondaryColor: '#C9C9C9'}" name="visible" ng-model="$ctrl.formData.isVisibleToCurrentSupporters">
+                        <input type="checkbox" id="visible" class="js-switch" ui-switch="{color: '#00acac', secondaryColor: '#C9C9C9'}" name="visible"
+                            ng-model="$ctrl.formData.isVisibleToCurrentSupporters">
                         <label for="visible">Visible to current supporters</label>
                         <p ng-show="journalForm.formData.visible.$error"></p>
                     </div>
@@ -239,7 +256,8 @@
 
                 <div class="form-group">
                     <label for="">Viewers</label>
-                    <ui-select name="username" close-on-select="false" ng-model="$ctrl.formData.users" theme="bootstrap" title="Choose supporters" multiple>
+                    <ui-select name="username" close-on-select="false" ng-model="$ctrl.formData.users" theme="bootstrap" title="Choose supporters"
+                        multiple>
                         <ui-select-match placeholder="Select or search a supporter in the list...">{{$item.username}}</ui-select-match>
                         <ui-select-choices repeat="user._id as user in $ctrl.users | filter: {username: $select.search}" group-by="'userType'">
                             <div ng-bind="user.username"></div>

@@ -1,5 +1,5 @@
 ;
-(function() {
+(function () {
     "use strict"
 
     angular.module("client.main.pages.journalEvents")
@@ -123,7 +123,7 @@
         }
     }
 })();
-(function() {
+(function () {
     angular.module("client.main.pages.journalEvents").component("journalDetail", {
         templateUrl: "client/main/pages/journal.events/details/journal.events.form.html",
         controller: "journalCreateController",
